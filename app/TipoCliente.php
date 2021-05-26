@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoCliente extends Model
 {
 
-    protected $fillable = ['idTipoCliente', 'TipoCliente','Tarifa'];
-    protected $primaryKey = 'idTipoCliente';
+    protected $fillable = ['id', 'tipoCliente','tarifa','consumo','fecha'];
+    protected $primaryKey = 'id';
     public $timestamps = false;
 }

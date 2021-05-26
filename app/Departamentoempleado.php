@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departamentoempleado extends Model
 {
-    protected $fillable = ['idDepEmpleado', 'DepEmpleado','Descripcion'];
-    protected $primaryKey = 'idDepEmpleado';
+    protected $fillable = ['id', 'departamento','descripcion'];
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
 }

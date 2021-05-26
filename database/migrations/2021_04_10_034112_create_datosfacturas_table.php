@@ -14,20 +14,18 @@ class CreateDatosfacturasTable extends Migration
     public function up()
     {
         Schema::create('datosfacturas', function (Blueprint $table) {
-            $table->id('idFactura');
-            $table->string('DireccionDomiciliar');
-            $table->string('Tarifa');
-            $table->double('Precio');
-            $table->double('LecturaAnterir');
-            $table->double('LecturaActual');
-            $table->double('Consumo');
-            $table->double('TotalPagar');
-            $table->string('EnergiaMes');
-
-            $table->integer('DPI');
-            $table->integer('idDepEmpleado');
-            $table->integer('idTipoCliente');
-            $table->integer('idMedidor');
+            $table->id('id');
+            $table->integer('idEmpleado');
+            $table->integer('idClienteMedidor');
+            $table->float('tarifa', 8, 2);
+            $table->float('precio', 8, 2);
+            $table->string('concepto');
+            $table->string('lecturaAnterior');
+            $table->string('lecturaActual');
+            $table->float('totalPagar', 8, 2);
+            $table->string('energiaMes');
+            $table->dateTime('fechaEmision');
+            $table->date('fecha');
 
         });
     }

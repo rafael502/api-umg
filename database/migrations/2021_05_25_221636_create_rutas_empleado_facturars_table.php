@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartamentoempleadosTable extends Migration
+class CreateRutasEmpleadoFacturarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDepartamentoempleadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamentoempleados', function (Blueprint $table) {
+        Schema::create('rutas_empleado_facturars', function (Blueprint $table) {
             $table->id('id');
-            $table->string('departamento');
-            $table->string('descripcion');
+            $table->integer('idEmpleado');
+            $table->integer('idDatosFactura');
+            $table->datetime('fechaFacturar');
         });
     }
 
@@ -27,6 +28,6 @@ class CreateDepartamentoempleadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamentoempleados');
+        Schema::dropIfExists('rutas_empleado_facturars');
     }
 }

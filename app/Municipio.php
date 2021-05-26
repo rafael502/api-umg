@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tipomedidor extends Model
+class Municipio extends Model
 {
-    protected $fillable = ['id', 'tipoMedidor','descripcion'];
+    protected $fillable = ['id','idDepartamento','municipio'];
     protected $primaryKey = 'id';
     public $timestamps = false;
-
 }

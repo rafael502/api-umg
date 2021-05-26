@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = ['DPI', 'PrimerNombre','SegundoNombre','PrimerApellido','SegundoApellido','Num_Telefono','idTipoCliente','idDireDomi','idCorreo','estado'];
-    protected $primaryKey = 'DPI';
+    protected $fillable = ['id','dpi', 'nombre','apellido','nit','direccionDomiciliar','idDepartamento','idMunicipio','email','telefono','idTipoCliente','estado','fecha'];
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
 }

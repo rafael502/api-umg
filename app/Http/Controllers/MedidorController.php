@@ -12,9 +12,9 @@ class MedidorController extends Controller
         return Medidor::all();
     }
 
-    public function show(Medidor $idMedidor)
+    public function show(Medidor $id)
     {
-        return $idMedidor;
+        return $id;
     }
 
     public function store(Request $request)
@@ -24,16 +24,16 @@ class MedidorController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Medidor $idMedidor)
+    public function update(Request $request, Medidor $id)
     {
-        $idMedidor->update($request->all());
+        $id->update($request->all());
 
-        return response()->json($idMedidor, 200);
+        return response()->json($id, 200);
     }
 
-    public function delete(Medidor $idMedidor)
+    public function delete(Medidor $id)
     {
-        $idMedidor->delete();
+        $id->delete();
 
         return response()->json(null, 204);
     }

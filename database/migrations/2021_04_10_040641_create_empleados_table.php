@@ -14,16 +14,18 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->id('DPI');
-            $table->string('PrimerNombre');
-            $table->string('SegundoNombre');
-            $table->string('PrimerApellido');
-            $table->string('SegundoApellido');
-            $table->string('Telefono');
-
-            $table->integer('idDireDomi');
+            $table->id('id');
+            $table->string('dpi');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->integer('idDepartamentoEmpleado');
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('direccionDomiciliar');
             $table->integer('idDepartamento');
+            $table->integer('idMunicipio');
             $table->integer('estado');
+            $table->date('fecha');
 
         });
     }

@@ -13,9 +13,9 @@ class ClienteController extends Controller
         return Cliente::all();
     }
 
-    public function show(Cliente $DPI)
+    public function show(Cliente $id)
     {
-        return $DPI;
+        return $id;
     }
 
     public function store(Request $request)
@@ -25,16 +25,16 @@ class ClienteController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Cliente $DPI)
+    public function update(Request $request, Cliente $id)
     {
-        $DPI->update($request->all());
+        $id->update($request->all());
 
-        return response()->json($DPI, 200);
+        return response()->json($id, 200);
     }
 
-    public function delete(Cliente $DPI)
+    public function delete(Cliente $id)
     {
-        $DPI->delete();
+        $id->delete();
 
         return response()->json(null, 204);
     }

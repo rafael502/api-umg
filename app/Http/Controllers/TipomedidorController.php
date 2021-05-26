@@ -13,9 +13,9 @@ class TipomedidorController extends Controller
         return Tipomedidor::all();
     }
 
-    public function show(Tipomedidor $idTipoMedidor)
+    public function show(Tipomedidor $id)
     {
-        return $idTipoMedidor;
+        return $id;
     }
 
     public function store(Request $request)
@@ -25,16 +25,16 @@ class TipomedidorController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Tipomedidor $idTipoMedidor)
+    public function update(Request $request, Tipomedidor $id)
     {
-        $idTipoMedidor->update($request->all());
+        $id->update($request->all());
 
-        return response()->json($idTipoMedidor, 200);
+        return response()->json($id, 200);
     }
 
-    public function delete(Tipomedidor $idTipoMedidor)
+    public function delete(Tipomedidor $id)
     {
-        $idTipoMedidor->delete();
+        $id->delete();
 
         return response()->json(null, 204);
     }

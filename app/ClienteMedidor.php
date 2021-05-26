@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClienteMedidor extends Model
 {
-    protected $fillable = ['NIS', 'Marca','Modelo','idTipoMedidor'];
-    protected $primaryKey = 'idMedidor';
+    protected $fillable = ['id', 'nis','idCliente','idTipoCliente','idMedidor','idTipoMedidor','estado','fecha'];
+    protected $primaryKey = 'id';
     public $timestamps = false;
 }

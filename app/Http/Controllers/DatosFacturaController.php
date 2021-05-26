@@ -12,9 +12,9 @@ class DatosFacturaController extends Controller
         return Datosfactura::all();
     }
 
-    public function show(Datosfactura $idFactura)
+    public function show(Datosfactura $id)
     {
-        return $idFactura;
+        return $id;
     }
 
     public function store(Request $request)
@@ -24,16 +24,16 @@ class DatosFacturaController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Datosfactura $idFactura)
+    public function update(Request $request, Datosfactura $id)
     {
-        $idFactura->update($request->all());
+        $id->update($request->all());
 
-        return response()->json($idFactura, 200);
+        return response()->json($id, 200);
     }
 
-    public function delete(Datosfactura $idFactura)
+    public function delete(Datosfactura $id)
     {
-        $idFactura->delete();
+        $id->delete();
 
         return response()->json(null, 204);
     }

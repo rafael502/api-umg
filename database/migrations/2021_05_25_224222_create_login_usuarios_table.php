@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClienteMedidorsTable extends Migration
+class CreateLoginUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateClienteMedidorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente_medidors', function (Blueprint $table) {
+        Schema::create('login_usuarios', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('nis');
-            $table->integer('idCliente');
-            $table->integer('idMedidor');
-            $table->integer('idTipoMedidor');
+            $table->string('usuario');
+            $table->string('password');
+            $table->string('perfil');
+            $table->integer('idEmpleado');
             $table->integer('estado');
+            $table->dateTime('ultimoLogin');
             $table->date('fecha');
+
+
         });
     }
 
@@ -31,6 +34,6 @@ class CreateClienteMedidorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente_medidors');
+        Schema::dropIfExists('login_usuarios');
     }
 }

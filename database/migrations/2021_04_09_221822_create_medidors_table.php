@@ -14,10 +14,14 @@ class CreateMedidorsTable extends Migration
     public function up()
     {
         Schema::create('medidors', function (Blueprint $table) {
-            $table->id('idMedidor');
-            $table->string('Marca');
-            $table->string('Modelo');
-            $table->bigInteger('idTipoMedidor');
+            $table->id('id');
+            $table->string('medidor');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->integer('idTipoMedidor');
+            $table->string('descripcion');
+            $table->date('fecha');
+
         });
     }
 

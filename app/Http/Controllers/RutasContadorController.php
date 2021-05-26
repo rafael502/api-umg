@@ -3,39 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\TipoCliente;
-
-class TipoClienteController extends Controller
+use App\RutasContador;
+class RutasContadorController extends Controller
 {
     public function index()
     {
-        return TipoCliente::all();
+        return RutasContador::all();
     }
 
-    public function show(TipoCliente $id)
+    public function show(RutasContador $id)
     {
         return $id;
     }
 
     public function store(Request $request)
     {
-        $article = TipoCliente::create($request->all());
+        $article = RutasContador::create($request->all());
 
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, TipoCliente $id)
+    public function update(Request $request, RutasContador $id)
     {
-        $id->update($request->all());
+        $idMunicipio->update($request->all());
 
         return response()->json($id, 200);
     }
 
-    public function delete(TipoCliente $id)
+    public function delete(RutasContador $id)
     {
         $id->delete();
 
         return response()->json(null, 204);
     }
-
 }

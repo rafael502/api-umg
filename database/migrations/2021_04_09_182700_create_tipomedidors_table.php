@@ -14,9 +14,9 @@ class CreateTipomedidorsTable extends Migration
     public function up()
     {
         Schema::create('tipomedidors', function (Blueprint $table) {
-            $table->id('idTipoMedidor');
-            $table->string('TipoMedidor',100)->unique();
-            $table->string('Descripcion');
+            $table->id('id');
+            $table->string('tipoMedidor');
+            $table->string('descripcion');
         });
     }
 

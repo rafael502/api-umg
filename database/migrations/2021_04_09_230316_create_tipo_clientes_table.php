@@ -14,9 +14,12 @@ class CreateTipoClientesTable extends Migration
     public function up()
     {
         Schema::create('tipo_clientes', function (Blueprint $table) {
-            $table->id('idTipoCliente');
-            $table->string('TipoCliente');
-            $table->double('Tarifa');
+            $table->id('id');
+            $table->string('tipoCliente');
+            $table->float('float', 8, 2);
+            $table->string('consumo');
+            $table->string('descripcion');
+            $table->date('fecha');
         });
     }
 

@@ -14,9 +14,9 @@ class DepEmpleadoController extends Controller
         return Departamentoempleado::all();
     }
 
-    public function show(Departamentoempleado $idDepEmpleado)
+    public function show(Departamentoempleado $id)
     {
-        return $idDepEmpleado;
+        return $id;
     }
 
     public function store(Request $request)
@@ -26,16 +26,16 @@ class DepEmpleadoController extends Controller
         return response()->json($article, 201);
     }
 
-    public function update(Request $request, Departamentoempleado $idDepEmpleado)
+    public function update(Request $request, Departamentoempleado $id)
     {
-        $idDepEmpleado->update($request->all());
+        $id->update($request->all());
 
-        return response()->json($idDepEmpleado, 200);
+        return response()->json($id, 200);
     }
 
-    public function delete(Departamentoempleado $idDepEmpleado)
+    public function delete(Departamentoempleado $id)
     {
-        $idDepEmpleado->delete();
+        $id->delete();
 
         return response()->json(null, 204);
     }
