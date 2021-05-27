@@ -161,5 +161,6 @@ Route::delete('clientemedidor/{id}', 'ClienteMedidorController@delete');
 Route::get('login', 'LoginUsuarioController@index');
 Route::get('login/{id}', 'LoginUsuarioController@show');
 Route::post('login', 'LoginUsuarioController@store');
+Route::post('login', 'LoginUsuarioController@login');
 Route::put('login/{id}', 'LoginUsuarioController@update');
 Route::delete('login/{id}', 'LoginUsuarioController@delete');

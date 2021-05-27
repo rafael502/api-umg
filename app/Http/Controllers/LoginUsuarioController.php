@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\LoginUsuario;
+use DB;
 class LoginUsuarioController extends Controller
 {
     public function index()
@@ -35,5 +36,34 @@ class LoginUsuarioController extends Controller
         $id->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function login(Request $request)
+    {
+        $user = DB::table('login_usuarios')
+            ->where('usuario', '=', $request->get('user'))
+            ->where('password', '=', $request->get('pass'))->get();
+
+        if(!$user->isEmpty()){
+            $idEmpleado = $user->pluck('idEmpleado');
+            //dd($idEmpleado);
+            $empleado = DB::table('empleados')
+                ->join('login_usuarios','empleados.id','=','login_usuarios.idEmpleado')->select('empleados.*')
+                ->where('empleados.id','=',$idEmpleado)->get();
+
+            //dd($empleado);
+           // $empleado->put('idUsuario',$user->pluck('id'))->all();
+            //return response()->json($empleado, 200);
+
+            return response()->json([
+                'success' => true,
+                'empleado' => $empleado
+            ],200);
+
+        }else{
+            return response()->json([
+                'success' => false
+            ],200);
+        }
     }
 }
