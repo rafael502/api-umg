@@ -15,9 +15,11 @@ class CreateRutasEmpleadoFacturarsTable extends Migration
     {
         Schema::create('rutas_empleado_facturars', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('idEmpleado');
-            $table->integer('idDatosFactura');
+            $table->unsignedBigInteger('idEmpleado');
+            $table->unsignedBigInteger('idDatosFactura');
             $table->datetime('fechaFacturar');
+            $table->foreign('idEmpleado')->references('id')->on('empleados');
+            $table->foreign('idDatosFactura')->references('id')->on('datosfacturas');
         });
     }
 

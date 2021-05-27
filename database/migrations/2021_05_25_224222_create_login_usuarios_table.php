@@ -18,10 +18,11 @@ class CreateLoginUsuariosTable extends Migration
             $table->string('usuario');
             $table->string('password');
             $table->string('perfil');
-            $table->integer('idEmpleado');
+            $table->unsignedBigInteger('idEmpleado');
             $table->integer('estado');
             $table->dateTime('ultimoLogin');
             $table->date('fecha');
+            $table->foreign('idEmpleado')->references('id')->on('empleados');
 
 
         });

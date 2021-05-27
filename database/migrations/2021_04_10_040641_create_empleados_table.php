@@ -18,14 +18,17 @@ class CreateEmpleadosTable extends Migration
             $table->string('dpi');
             $table->string('nombre');
             $table->string('apellido');
-            $table->integer('idDepartamentoEmpleado');
+            $table->unsignedBigInteger('idDepartamentoEmpleado');
             $table->string('telefono');
             $table->string('email');
             $table->string('direccionDomiciliar');
-            $table->integer('idDepartamento');
-            $table->integer('idMunicipio');
+            $table->unsignedBigInteger('idDepartamento');
+            $table->unsignedBigInteger('idMunicipio');
             $table->integer('estado');
             $table->date('fecha');
+            $table->foreign('idDepartamentoEmpleado')->references('id')->on('departamentoempleados');
+            $table->foreign('idDepartamento')->references('id')->on('departamentos');
+            $table->foreign('idMunicipio')->references('id')->on('municipios');
 
         });
     }
