@@ -20,13 +20,17 @@ class CreateClientesTable extends Migration
             $table->string('apellido');
             $table->integer('nit');
             $table->string('direccionDomiciliar');
-            $table->integer('idDepartamento');
-            $table->integer('idMunicipio');
+            $table->unsignedBigInteger('idDepartamento');
+            $table->unsignedBigInteger('idMunicipio');
             $table->string('email');
             $table->string('telefono');
-            $table->integer('idTipoCliente');
+            $table->unsignedBigInteger('idTipoCliente');
             $table->integer('estado');
             $table->date('fecha');
+            $table->foreign('idDepartamento')->references('id')->on('departamentos');
+            $table->foreign('idMunicipio')->references('id')->on('municipios');
+            $table->foreign('idTipoCliente')->references('id')->on('tipo_clientes');
+
         });
     }
 

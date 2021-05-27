@@ -16,11 +16,15 @@ class CreateClienteMedidorsTable extends Migration
         Schema::create('cliente_medidors', function (Blueprint $table) {
             $table->id('id');
             $table->integer('nis');
-            $table->integer('idCliente');
-            $table->integer('idMedidor');
-            $table->integer('idTipoMedidor');
+            $table->unsignedBigInteger('idCliente');
+            $table->unsignedBigInteger('idMedidor');
+            $table->unsignedBigInteger('idTipoMedidor');
             $table->integer('estado');
             $table->date('fecha');
+            $table->foreign('idCliente')->references('id')->on('clientes');
+            $table->foreign('idMedidor')->references('id')->on('medidors');
+            $table->foreign('idTipoMedidor')->references('id')->on('tipomedidors');
+
         });
     }
 

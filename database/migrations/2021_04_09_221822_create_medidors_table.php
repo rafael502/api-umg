@@ -18,9 +18,10 @@ class CreateMedidorsTable extends Migration
             $table->string('medidor');
             $table->string('marca');
             $table->string('modelo');
-            $table->integer('idTipoMedidor');
+            $table->unsignedBigInteger('idTipoMedidor');
             $table->string('descripcion');
             $table->date('fecha');
+            $table->foreign('idTipoMedidor')->references('id')->on('tipomedidors');
 
         });
     }

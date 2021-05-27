@@ -16,9 +16,11 @@ class CreateRutasContadorsTable extends Migration
         Schema::create('rutas_contadors', function (Blueprint $table) {
             $table->id('id');
             $table->string('descripcion');
-            $table->integer('idMedidor');
+            $table->unsignedBigInteger('idMedidor');
             $table->integer('estado');
             $table->date('fecha');
+            $table->foreign('idMedidor')->references('id')->on('medidors');
+
         });
     }
 

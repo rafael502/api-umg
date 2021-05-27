@@ -15,8 +15,8 @@ class CreateDatosfacturasTable extends Migration
     {
         Schema::create('datosfacturas', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('idEmpleado');
-            $table->integer('idClienteMedidor');
+            $table->unsignedBigInteger('idEmpleado');
+            $table->unsignedBigInteger('idClienteMedidor');
             $table->float('tarifa', 8, 2);
             $table->float('precio', 8, 2);
             $table->string('concepto');
@@ -26,6 +26,8 @@ class CreateDatosfacturasTable extends Migration
             $table->string('energiaMes');
             $table->dateTime('fechaEmision');
             $table->date('fecha');
+            $table->foreign('idEmpleado')->references('id')->on('empleados');
+            $table->foreign('idClienteMedidor')->references('id')->on('cliente_medidors');
 
         });
     }
