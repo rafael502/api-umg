@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Municipio;
+use DB;
 
 class MunicipioController extends Controller
 {
@@ -26,7 +27,7 @@ class MunicipioController extends Controller
 
     // public function update(Request $request, Municipio $id)
     // {
-       
+
     //      $id->update($request->all());
 
     //     return response()->json($id, 200);
@@ -35,7 +36,7 @@ class MunicipioController extends Controller
     public function update(Request $request, $id)
     {
         $municipio = Municipio::findOrFail($id);
-    
+
         $municipio->idDepartamento = $request->idDepartamento;
         $municipio->municipio = $request->municipio;
 
@@ -48,5 +49,14 @@ class MunicipioController extends Controller
         $id->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function getMunicipios(Request $request){
+
+        $municipios = DB::table('municipios')
+            ->join('departamentos','municipios.idDepartamento','=','departamentos.id')->select('municipios.*','departamentos.*')
+            ->where('municipios.idDepartamento','=',$request->get('id'))->get();
+
+        return response()->json($municipios, 200);
     }
 }

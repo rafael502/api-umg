@@ -60,6 +60,8 @@ Route::get('municipio/{id}', 'MunicipioController@show');
 Route::post('municipio', 'MunicipioController@store');
 Route::put('municipio/{id}', 'MunicipioController@update');
 Route::delete('municipio/{id}', 'MunicipioController@delete');
+Route::post('municipio', 'MunicipioController@getMunicipios');
+
 
 //DEPARTAMENTO
 
@@ -86,7 +88,7 @@ Route::post('deptoempleado', 'DepEmpleadoController@store');
 Route::put('deptoempleado/{id}', 'DepEmpleadoController@update');
 Route::delete('deptoempleado/{id}', 'DepEmpleadoController@delete');
 
-// TIPO DE MEDIDOR 
+// TIPO DE MEDIDOR
 
 Route::get('tipomedidor', 'TipomedidorController@index');
 Route::get('tipomedidor/{id}', 'TipomedidorController@show');
@@ -145,7 +147,7 @@ Route::post('medidor', 'MedidorController@store');
 Route::put('medidor/{id}', 'MedidorController@update');
 Route::delete('medidor/{id}', 'MedidorController@delete');
 
-//CLIENTE MEDIDOR 
+//CLIENTE MEDIDOR
 
 Route::get('clientemedidor', 'ClienteMedidorController@index');
 Route::get('clientemedidor/{id}', 'ClienteMedidorController@show');
