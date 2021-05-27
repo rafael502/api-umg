@@ -54,7 +54,7 @@ class MunicipioController extends Controller
     public function getMunicipios(Request $request){
 
         $municipios = DB::table('municipios')
-            ->join('departamentos','municipios.idDepartamento','=','departamentos.id')->select('municipios.*','departamentos.*')
+            ->join('departamentos','municipios.idDepartamento','=','departamentos.id')->select('municipios.id','municipios.municipio','departamentos.departamento')
             ->where('municipios.idDepartamento','=',$request->get('id'))->get();
 
         return response()->json($municipios, 200);
