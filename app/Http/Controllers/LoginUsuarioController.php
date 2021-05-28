@@ -17,12 +17,12 @@ class LoginUsuarioController extends Controller
         return $id;
     }
 
-    public function store(Request $request)
-    {
-        $article = LoginUsuario::create($request->all());
+    // public function store(Request $request)
+    // {
+    //     $article = LoginUsuario::create($request->all());
 
-        return response()->json($article, 201);
-    }
+    //     return response()->json($article, 201);
+    // }
 
     public function update(Request $request, LoginUsuario $id)
     {

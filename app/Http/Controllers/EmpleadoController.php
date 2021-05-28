@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Empleado;
-
+use App\LoginUsuario;
+use Carbon\Carbon;
 class EmpleadoController extends Controller
 {
     public function index()
@@ -18,12 +19,43 @@ class EmpleadoController extends Controller
         return $id;
     }
 
+
+
     public function store(Request $request)
     {
-        $article = Empleado::create($request->all());
+        dd($request);
+        $empleado = Empleado::create($request->all());
 
-        return response()->json($article, 201);
+        $idEmpleado = $empleado->id;
+       
+
+        $nombre = $empleado->nombre;
+        
+       $user= $this->crearusuario($idEmpleado,$nombre);
+
+        return response()->json($user, 200);
+
     }
+
+    public function crearusuario($idEmpleado,$nombre)
+    {   
+        $contra = str_shuffle($nombre);
+        $pass = str_shuffle('1234567abcdef');
+
+        $usuario = new LoginUsuario();
+        $usuario->usuario = $contra;
+        $usuario->password = $pass;
+        $usuario->perfil = 'empleado';
+        $usuario->idEmpleado = $idEmpleado;
+        $usuario->estado = 1;
+        $usuario->save();
+
+        return $usuario;
+    }
+
+
+
+
 
     public function update(Request $request, Empleado $id)
     {
