@@ -23,14 +23,14 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
         $empleado = Empleado::create($request->all());
 
         $idEmpleado = $empleado->id;
-       
+
 
         $nombre = $empleado->nombre;
-        
+
        $user= $this->crearusuario($idEmpleado,$nombre);
 
         return response()->json($user, 200);
@@ -38,7 +38,7 @@ class EmpleadoController extends Controller
     }
 
     public function crearusuario($idEmpleado,$nombre)
-    {   
+    {
         $contra = str_shuffle($nombre);
         $pass = str_shuffle('1234567abcdef');
 
