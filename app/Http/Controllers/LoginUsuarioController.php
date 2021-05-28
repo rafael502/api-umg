@@ -46,15 +46,10 @@ class LoginUsuarioController extends Controller
 
         if(!$user->isEmpty()){
             $idEmpleado = $user->pluck('idEmpleado');
-            //dd($idEmpleado);
             $empleado = DB::table('empleados')
-                ->join('login_usuarios','empleados.id','=','login_usuarios.idEmpleado')->select('empleados.*')
+                ->join('login_usuarios','empleados.id','=','login_usuarios.idEmpleado')
+                ->select('empleados.*')
                 ->where('empleados.id','=',$idEmpleado)->get();
-
-            //dd($empleado);
-           // $empleado->put('idUsuario',$user->pluck('id'))->all();
-            //return response()->json($empleado, 200);
-
             return response()->json([
                 'success' => true,
                 'empleado' => $empleado
