@@ -164,3 +164,8 @@ Route::post('login', 'LoginUsuarioController@store');
 Route::post('login', 'LoginUsuarioController@login');
 Route::put('login/{id}', 'LoginUsuarioController@update');
 Route::delete('login/{id}', 'LoginUsuarioController@delete');
+
+
+//CLIENTES POR RUTA
+Route::post('ruta', 'RutasController@getAllClientes');
+
